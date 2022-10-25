@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data.SqlTypes;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
@@ -15,17 +16,26 @@ namespace The_Halloween_Hangman
                 "conviction", "allowance", "arrogant", "separation", "environment",
                 "protection", "deteriorate", "economist", "continental", "mushroom",
                 "repetition", "unlawful", "arrogant", "jazz" };
-
+            List<char[]> letters;
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
             Console.WriteLine(randomWord); // printing random word in the Console
-            // int randomWordLetterIndex = randomWord.Count();
-            for(int i = 0; i < randomWord.Count(); i++)
+            char[] charArr = randomWord.ToCharArray(); // dividing word in chars and adding to array
+            foreach (char ch in charArr)
             {
-                Console.Write("_");
-                //Regex.Replace(randomWord, "([A-Z])", "_$1");
-                //Console.WriteLine(Regex.Replace(randomWord[i], "([A-Z])", "_$1"));
+                Console.WriteLine(ch);
             }
+
+
+
+
+
+           //for (int i = 0; i < randomWord.Count(); i++)
+           //{
+           //    Console.Write("the letters"[i]);
+           //    //Regex.Replace(randomWord, "([A-Z])", "_$1");
+           //    //Console.WriteLine(Regex.Replace(randomWord[i], "([A-Z])", "_$1"));
+           //}
             Console.WriteLine("Guess the letter!");
             
             string userInput = Console.ReadLine();
