@@ -11,18 +11,8 @@
                 "repetition", "unlawful", "arrogant", "jazz" };
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
-            Console.WriteLine(randomWord); // printing random word in the Console
-            //char[] charArr = randomWord.ToCharArray(); // dividing word in chars and adding to array          
+            Console.WriteLine(randomWord); // printing random word in the Console 
 
-            //var good = charArr.ToString();
-           // Console.Write(good);
-
-            // char charTry = char.Parse(userInput);
-            // char[] userChars = userInput.ToCharArray();
-            // char[] charArrInput = userInput.ToCharArray();
-           //bool validUserInput = randomWord.Contains(userInput); // validating user's input
-          // bool validUserInput2 = randomWord.Contains(userInput);
-                      
             int found;
             int totFinds = 0;
             int i;
@@ -35,32 +25,38 @@
                 string userInput = Console.ReadLine(); // reading user's input
                 bool validUserInput = randomWord.Contains(userInput);
 
-            if (userInput != "") // check if user input is not empty 
+                if (userInput != "") // check if user input is not empty 
                 {
                     for (i = 0; i < randomWord.Length; i++) // check thru the chosen word 
                     {
-                        found = randomWord.IndexOf(userInput, i); //getting the indexes of the letters                          
+                        found = randomWord.IndexOf(userInput, i); //getting the indexes of the letters
+                                                                  //
+                        char currentChar = randomWord[i];
+                        char userChar = userInput[0];
 
-                        if (found >= 0) // if index is gigher than 0 we can count how many times the same letter was found
+                        if (userChar == currentChar)
+                        {  }
+
+                        if (found >= 0) // if index is higher or equal to 0 we can count how many times the same letter was found
                         {
                             totFinds++; //counting finds
                             i = found; // getting index numbers
                             Console.WriteLine(i);
                         }
                         else
-                        {                            
-                            break;                            
-                        }                        
+                        {
+                            break;
+                        }
                     }
-                    
+
                 }
                 else
-                {                    
-                return;
+                {
+                    return;
                 }
 
-                Console.WriteLine("{0}The search parameter '{1}' was found {2} times.",
-                        Environment.NewLine, userInput, totFinds);
+                Console.WriteLine($"The search parameter {1} was found {2} times.",
+                        Environment.NewLine, userInput, totFinds); //TODO: use string interpolation.
 
                 totFinds = 0;
                 if (validUserInput != true) // if the users input doesn't match any letter it gives this error
@@ -68,7 +64,7 @@
                     Console.WriteLine("Your letter doesn't match with any in the word");
                 }
             } while (true);
-                
+
 
 
 
