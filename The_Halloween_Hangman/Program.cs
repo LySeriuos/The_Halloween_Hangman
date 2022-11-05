@@ -35,13 +35,14 @@
             // 3. later I need to change empty indexes to the letter it was matching
             do
             {
-                               
+                for (i= 0; i < newOne; i++)
+                {
+                    Console.Write("_");
+                }                
                 
-                Console.WriteLine();
-                ; Console.WriteLine("Guess the letter!"); // Asking for user's input
+                Console.WriteLine("\n\n\r\nGuess the letter!"); // Asking for user's input
                 string userInput = Console.ReadLine(); // reading user's input
                 bool validUserInput = randomWord.Contains(userInput);
-                Console.Write("_");
                 if (userInput != "") // check if user input is not empty 
                 {
                     for (i = 0; i < randomWord.Length; i++) // check thru the chosen word 
