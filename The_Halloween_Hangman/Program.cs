@@ -12,30 +12,50 @@
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
             Console.WriteLine(randomWord); // printing random word in the Console 
+            char[]randomWordLetters = randomWord.ToCharArray(); // converting string to char Array
+
 
             int found;
             int totFinds = 0;
             int i;
+            int countLetters = 0; // variable for total letters in the word
+
+            foreach (char ch in randomWordLetters) // going thru every letter in the randomWord to get total letters 
+            {                
+                countLetters++; //adding letters
+                Console.WriteLine(countLetters);
+            }
+
+            int newOne = countLetters;
+            Console.WriteLine(newOne);
+
+
             // 1. make and for loop which is exact length as the random word and print underscores
             // 2. this part of the code is getting the indexes of matching letter with userInput 
             // 3. later I need to change empty indexes to the letter it was matching
             do
             {
-                Console.WriteLine("Guess the letter!"); // Asking for user's input
+                               
+                
+                Console.WriteLine();
+                ; Console.WriteLine("Guess the letter!"); // Asking for user's input
                 string userInput = Console.ReadLine(); // reading user's input
                 bool validUserInput = randomWord.Contains(userInput);
-
+                Console.Write("_");
                 if (userInput != "") // check if user input is not empty 
                 {
                     for (i = 0; i < randomWord.Length; i++) // check thru the chosen word 
                     {
+
                         found = randomWord.IndexOf(userInput, i); //getting the indexes of the letters
-                                                                  //
+
                         char currentChar = randomWord[i];
                         char userChar = userInput[0];
 
                         if (userChar == currentChar)
-                        {  }
+                        {
+
+                        }
 
                         if (found >= 0) // if index is higher or equal to 0 we can count how many times the same letter was found
                         {
@@ -55,7 +75,7 @@
                     return;
                 }
 
-                Console.WriteLine($"The search parameter {1} was found {2} times.",
+                Console.WriteLine($"The search parameter {userInput} was found {2} times.",
                         Environment.NewLine, userInput, totFinds); //TODO: use string interpolation.
 
                 totFinds = 0;
