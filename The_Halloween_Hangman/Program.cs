@@ -1,4 +1,6 @@
-﻿namespace The_Halloween_Hangman
+﻿using System;
+
+namespace The_Halloween_Hangman
 {
     internal class Program
     {
@@ -13,21 +15,14 @@
             string randomWord = words[wordsIndex]; // getting the value of the index
             Console.WriteLine(randomWord); // printing random word in the Console 
             char[]randomWordLetters = randomWord.ToCharArray(); // converting string to char Array
-
+            int randomWordsLength = randomWord.Length; // getting the length of the randomWord
+            string[] underscores = new string[randomWordsLength]; // creating new array for underscores
+            var listOfChars = new List<string>();
 
             int found;
             int totFinds = 0;
             int i;
-            int countLetters = 0; // variable for total letters in the word
-
-            foreach (char ch in randomWordLetters) // going thru every letter in the randomWord to get total letters 
-            {                
-                countLetters++; //adding letters
-                Console.WriteLine(countLetters);
-            }
-
-            int newOne = countLetters;
-            Console.WriteLine(newOne);
+                  
 
 
             // 1. make and for loop which is exact length as the random word and print underscores
@@ -35,11 +30,20 @@
             // 3. later I need to change empty indexes to the letter it was matching
             do
             {
-                for (i= 0; i < newOne; i++)
+                for (i = 0; i < underscores.Length; i++)
                 {
-                    Console.Write("_");
-                }                
-                
+                    listOfChars.Add("_");                    
+                }
+
+
+                Console.WriteLine($"\n\n\r\n{listOfChars}");
+                string[]underscoreChar = listOfChars.ToArray();
+                for (i = 0; i < underscoreChar.Length; i++)
+                {
+                    Console.Write(underscoreChar[i]);
+                }
+                Console.WriteLine(underscoreChar[3]);
+
                 Console.WriteLine("\n\n\r\nGuess the letter!"); // Asking for user's input
                 string userInput = Console.ReadLine(); // reading user's input
                 bool validUserInput = randomWord.Contains(userInput);
