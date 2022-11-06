@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Text;
 
 namespace The_Halloween_Hangman
 {
@@ -22,27 +24,21 @@ namespace The_Halloween_Hangman
             int found;
             int totFinds = 0;
             int i;
-                  
-
-
-            // 1. make and for loop which is exact length as the random word and print underscores
-            // 2. this part of the code is getting the indexes of matching letter with userInput 
-            // 3. later I need to change empty indexes to the letter it was matching
             do
             {
                 for (i = 0; i < underscores.Length; i++)
                 {
-                    listOfChars.Add("_");                    
+                    listOfChars.Add("_");
+                    
                 }
 
 
-                Console.WriteLine($"\n\n\r\n{listOfChars}");
+                //Console.WriteLine($"\n\n\r\n{listOfChars}");
                 string[]underscoreChar = listOfChars.ToArray();
                 for (i = 0; i < underscoreChar.Length; i++)
                 {
                     Console.Write(underscoreChar[i]);
                 }
-                Console.WriteLine(underscoreChar[3]);
 
                 Console.WriteLine("\n\n\r\nGuess the letter!"); // Asking for user's input
                 string userInput = Console.ReadLine(); // reading user's input
@@ -57,16 +53,18 @@ namespace The_Halloween_Hangman
                         char currentChar = randomWord[i];
                         char userChar = userInput[0];
 
+                        // Add for each to get thru every index with the same char
                         if (userChar == currentChar)
                         {
+                            Console.WriteLine(underscoreChar[found]);
+                            listOfChars[found] = userInput; // index starts at 0!
 
                         }
 
-                        if (found >= 0) // if index is higher or equal to 0 we can count how many times the same letter was found
+                        if (found > 0) // if index is higher or equal to 0 we can count how many times the same letter was found
                         {
                             totFinds++; //counting finds
                             i = found; // getting index numbers
-                            Console.WriteLine(i);
                         }
                         else
                         {
