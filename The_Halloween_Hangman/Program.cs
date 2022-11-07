@@ -16,7 +16,7 @@ namespace The_Halloween_Hangman
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
             Console.WriteLine(randomWord); // printing random word in the Console 
-            char[]randomWordLetters = randomWord.ToCharArray(); // converting string to char Array
+            char[] randomWordLetters = randomWord.ToCharArray(); // converting string to char Array
             int randomWordsLength = randomWord.Length; // getting the length of the randomWord
             string[] underscores = new string[randomWordsLength]; // creating new array for underscores
             var listOfChars = new List<string>();
@@ -24,17 +24,17 @@ namespace The_Halloween_Hangman
             int found;
             int totFinds = 0;
             int i;
+
+            for (i = 0; i < underscores.Length; i++)
+            {
+                listOfChars.Add("_");
+
+            }
+
             do
             {
-                for (i = 0; i < underscores.Length; i++)
-                {
-                    listOfChars.Add("_");
-                    
-                }
-
-
                 //Console.WriteLine($"\n\n\r\n{listOfChars}");
-                string[]underscoreChar = listOfChars.ToArray();
+                string[] underscoreChar = listOfChars.ToArray();
                 for (i = 0; i < underscoreChar.Length; i++)
                 {
                     Console.Write(underscoreChar[i]);
@@ -56,9 +56,10 @@ namespace The_Halloween_Hangman
                         // Add for each to get thru every index with the same char
                         if (userChar == currentChar)
                         {
-                            Console.WriteLine(underscoreChar[found]);
+
                             listOfChars[found] = userInput; // index starts at 0!
 
+                            Console.WriteLine(underscoreChar[found]);
                         }
 
                         if (found > 0) // if index is higher or equal to 0 we can count how many times the same letter was found
