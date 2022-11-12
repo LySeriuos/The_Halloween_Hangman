@@ -1,8 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Text;
-
-namespace The_Halloween_Hangman
+﻿namespace The_Halloween_Hangman
 {
     internal class Program
     {
@@ -21,74 +17,7 @@ namespace The_Halloween_Hangman
             string[] underscores = new string[randomWordsLength]; // creating new array for underscores
             var listOfChars = new List<string>();
 
-            int found;
-            int totFinds = 0;
-            int i;
-
-            for (i = 0; i < underscores.Length; i++)
-            {
-                listOfChars.Add("_");
-
-            }
-
-            do
-            {
-                //Console.WriteLine($"\n\n\r\n{listOfChars}");
-                string[] underscoreChar = listOfChars.ToArray();
-                for (i = 0; i < underscoreChar.Length; i++)
-                {
-                    Console.Write(underscoreChar[i]);
-                }
-
-                Console.WriteLine("\n\n\r\nGuess the letter!"); // Asking for user's input
-                string userInput = Console.ReadLine(); // reading user's input
-                bool validUserInput = randomWord.Contains(userInput);
-                if (userInput != "") // check if user input is not empty 
-                {
-                    for (i = 0; i < randomWord.Length; i++) // check thru the chosen word 
-                    {
-
-                        found = randomWord.IndexOf(userInput, i); //getting the indexes of the letters
-
-                        char currentChar = randomWord[i];
-                        char userChar = userInput[0];
-
-                        // Add for each to get thru every index with the same char
-                        if (userChar == currentChar)
-                        {
-
-                            listOfChars[found] = userInput; // index starts at 0!
-
-                            Console.WriteLine(underscoreChar[found]);
-                        }
-
-                        if (found > 0) // if index is higher or equal to 0 we can count how many times the same letter was found
-                        {
-                            totFinds++; //counting finds
-                            i = found; // getting index numbers
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-
-                }
-                else
-                {
-                    return;
-                }
-
-                Console.WriteLine($"The search parameter {userInput} was found {2} times.",
-                        Environment.NewLine, userInput, totFinds); //TODO: use string interpolation.
-
-                totFinds = 0;
-                if (validUserInput != true) // if the users input doesn't match any letter it gives this error
-                {
-                    Console.WriteLine("Your letter doesn't match with any in the word");
-                }
-            } while (true);
-
+            
 
 
 
