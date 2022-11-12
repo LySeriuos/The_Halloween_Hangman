@@ -12,10 +12,12 @@
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
             Console.WriteLine(randomWord); // printing random word in the Console 
-            char[] randomWordLetters = randomWord.ToCharArray(); // converting string to char Array
-            int randomWordsLength = randomWord.Length; // getting the length of the randomWord
-            string[] underscores = new string[randomWordsLength]; // creating new array for underscores
-            var listOfChars = new List<string>();
+            char[] randomWordInChar = new char[randomWord.Length]; // creating char array for randomWord
+            char userInput; //creating char for the User Input
+            Console.WriteLine("Guess your letter!");
+            userInput = Convert.ToChar(Console.ReadLine());
+            
+
 
             
 
