@@ -11,15 +11,28 @@
                 "repetition", "unlawful", "arrogant", "jazz" };
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
+
             Console.WriteLine(randomWord); // printing random word in the Console 
             char[] randomWordInChar = new char[randomWord.Length]; // creating char array for randomWord
+            randomWordInChar = randomWord.ToCharArray(); // converting to char array
+            int randomWordsLength = randomWord.Length; // getting the length of the randomWord
+            string[] underscores = new string[randomWordsLength]; // creating new array for underscores
+            var listOfChars = new List<string>(); //creating new list for underscores
+            int i;
+            for (i = 0; i < underscores.Length; i++) // for every letter adding one underscore
+            {
+                listOfChars.Add("_");
+            }
+
             char userInput; //creating char for the User Input
             Console.WriteLine("Guess your letter!");
             userInput = Convert.ToChar(Console.ReadLine());
             
+           
 
 
-            
+
+
 
 
 
