@@ -17,15 +17,22 @@
             randomWordInChar = randomWord.ToCharArray(); // converting to char array
             int randomWordsLength = randomWord.Length; // getting the length of the randomWord
             string[] underscores = new string[randomWordsLength]; // creating new array for underscores
-            var listOfChars = new List<string>(); //creating new list for underscores
+            var listOfUnderscoresString = new List<string>(); //creating new list for underscores
+
             int i;
             for (i = 0; i < underscores.Length; i++) // for every letter adding one underscore
             {
-                listOfChars.Add("_");
+                listOfUnderscoresString.Add("_");
+            }
+
+            string[] underscoreChar = listOfUnderscoresString.ToArray(); // converting list to array
+            for (i = 0; i < underscoreChar.Length; i++) // looping thru every undescore in the list to get indexnumber
+            {
+                Console.Write(underscoreChar[i]);
             }
 
             char userInput; //creating char for the User Input
-            Console.WriteLine("Guess your letter!");
+            Console.WriteLine("\n\n\r\nGuess the letter!");
             userInput = Convert.ToChar(Console.ReadLine());
             
            
