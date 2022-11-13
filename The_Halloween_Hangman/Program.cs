@@ -27,8 +27,7 @@
                 }
 
                 Console.WriteLine("\n\n\r\nGuess the letter!"); // Asking for user's input
-                string userInput = Console.ReadLine(); // reading user's input
-                bool validUserInput = randomWord.Contains(userInput);
+                string userInput = Console.ReadLine().ToLower(); // reading user's input
                 if (userInput != "") // check if user input is not empty 
                 {
                     for (int i = 0; i < randomWord.Length; i++) // check thru the chosen word 
@@ -50,7 +49,7 @@
 
                 Console.WriteLine($"The search parameter {userInput} was found {totFinds} times."); 
                 
-                if (validUserInput != true) // if the users input doesn't match any letter it gives this error
+                if (totFinds == 0) // if the users input doesn't match any letter it gives this error
                 {
                     Console.WriteLine("Your letter doesn't match with any in the word");
                 }
