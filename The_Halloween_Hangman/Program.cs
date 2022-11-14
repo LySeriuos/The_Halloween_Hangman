@@ -17,7 +17,7 @@
             int randomWordLength = randomWord.Length; // getting the length of the randomWord            
             var listOfChars = new List<char>(); // creating a chars list for underscores
             int totFinds = 0; // variableto count how many letters is equal to the the userInput
-            
+            Console.WriteLine("\n\t\t\t\t\tWelcome to The Hangman! \n\n\t\tYou guess the word by guessing letters one at a time. \n\t\tYou are allowed seven mistakes! \n\n\t\t\t\t\tGood luck!!!");
             do
             {
                 for (int i = 0; i < randomWordLength; i++)
