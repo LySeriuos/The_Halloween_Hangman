@@ -11,6 +11,7 @@
                 "repetition", "unlawful", "arrogant", "jazz" };
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
+            char[] randomWordInChar = randomWord.ToCharArray(); // converting string RandomWord to charArray
 
             Console.WriteLine(randomWord); // printing random word in the Console
                                            // 
@@ -29,6 +30,7 @@
 
                 Console.WriteLine("\n\n\r\nGuess the letter!"); // Asking for user's input
                 string userInput = Console.ReadLine().ToLower(); // reading user's input
+                char[] userInputToChar = userInput.ToCharArray(); // converting string RandomWord to charArray
                 if (userInput != "") // check if user input is not empty 
                 {
                     for (int i = 0; i < randomWord.Length; i++) // check thru the chosen word 
@@ -45,7 +47,7 @@
                         {
 
                             listOfBadLettersInChar.Add(userInput[0]);
-                            foreach(char c in listOfChars)
+                            foreach(char c in listOfBadLettersInChar)
                             {
                             Console.Write(c);    
                             }
