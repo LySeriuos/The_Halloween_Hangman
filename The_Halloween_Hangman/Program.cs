@@ -11,9 +11,7 @@
                 "repetition", "unlawful", "arrogant", "jazz" };
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
-
-            Console.WriteLine(randomWord); // printing random word in the Console
-                                           // 
+            Console.WriteLine(randomWord); // printing random word in the Console                                           // 
             int randomWordLength = randomWord.Length; // getting the length of the randomWord            
             var listOfChars = new List<char>(); // creating a chars list for underscores
             var listOfBadLettersInChar = new List<char>();
@@ -25,9 +23,7 @@
                 {
                     listOfChars.Add('_');
                     Console.Write(listOfChars[i]);
-                }
-
-                
+                }               
 
                 Console.WriteLine("\n\n\r\nGuess the letter!"); // Asking for user's input
                 string userInput = Console.ReadLine().ToLower(); // reading user's input
@@ -66,10 +62,6 @@
 
                 Console.WriteLine($"\n\nThe search parameter {userInput} was found {totFinds} times.");
 
-               
-
-
-                
             } while (true);
             
         }
