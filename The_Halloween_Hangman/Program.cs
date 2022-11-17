@@ -11,7 +11,6 @@
                 "repetition", "unlawful", "arrogant", "jazz" };
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
-            char[] randomWordInChar = randomWord.ToCharArray(); // converting string RandomWord to charArray
 
             Console.WriteLine(randomWord); // printing random word in the Console
                                            // 
@@ -28,44 +27,52 @@
                     Console.Write(listOfChars[i]);
                 }
 
+                
+
                 Console.WriteLine("\n\n\r\nGuess the letter!"); // Asking for user's input
                 string userInput = Console.ReadLine().ToLower(); // reading user's input
-                char[] userInputToChar = userInput.ToCharArray(); // converting string RandomWord to charArray
                 if (userInput != "") // check if user input is not empty 
                 {
                     for (int i = 0; i < randomWord.Length; i++) // check thru the chosen word 
                     {
-                        char currentChar = randomWord[i]; 
+                        char currentChar = randomWord[i];
                         char userChar = userInput[0];
 
                         if (userChar == currentChar) // checking if letter in the randomWord is the same as userInput
-                        {            
-                            totFinds++; //counting finds
-                            listOfChars[i] = userInput[0]; // changing underscore to letter in the listOfChars                                            
-                        }
-                        if (userChar != currentChar)
                         {
-
-                            listOfBadLettersInChar.Add(userInput[0]);
-                            foreach(char c in listOfBadLettersInChar)
-                            {
-                            Console.Write(c);    
-                            }
-                        }
-                    }
+                            totFinds++; //counting finds
+                            listOfChars[i] = userInput[0]; // changing underscore to letter in the listOfChars
+                            Console.WriteLine($"\n\nThe letter {userInput} was found {totFinds} times in the word.\n");
+                        }                        
+                    }                    
                 }
                 else
                 {
                     return;
                 }
 
-                Console.WriteLine($"The search parameter {userInput} was found {totFinds} times."); 
-                
-                if (totFinds == 0) // if the users input doesn't match any letter it gives this error
+                if (listOfChars[0] != userInput[0]) // if the users input doesn't match any letter it gives this error
                 {
-                    Console.WriteLine("Your letter doesn't match with any in the word");
+                    listOfBadLettersInChar.Add(userInput[0]);
+                    Console.WriteLine("\nYour letter doesn't match with any in the word\n");
+
                 }
+
+                Console.WriteLine("Your's guessed wrong letters: ");
+                foreach (char badLettersChar in listOfBadLettersInChar)
+                {
+                    Console.Write(badLettersChar);
+                }
+
+                Console.WriteLine($"\n\nThe search parameter {userInput} was found {totFinds} times.");
+
+               
+
+
+                
             } while (true);
+            
         }
+
     }
 }
