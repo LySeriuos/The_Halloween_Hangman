@@ -55,10 +55,10 @@
 
                 }
 
-                Console.WriteLine("Your's guessed wrong letters: "); // Printing guessed all bad letters
+                Console.WriteLine("Your's guessed wrong letters: "); // Printing guessed bad letters list
                 foreach (char badLettersChar in listOfBadLettersInChar)
                 {
-                    Console.Write(badLettersChar);
+                    Console.Write(badLettersChar + ","); // printing list with ',' in between them
                 }
 
                 Console.WriteLine($"\n\nThe search parameter {userInput} was found {totFinds} times."); 
