@@ -11,10 +11,11 @@
                 "repetition", "unlawful", "arrogant", "jazz" };
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
-            Console.WriteLine(randomWord); // printing random word in the Console
+            Console.WriteLine(randomWord); // printing random word in the Console                                           // 
             int randomWordLength = randomWord.Length; // getting the length of the randomWord            
             var listOfChars = new List<char>(); // creating a chars list for underscores
             var listOfBadLettersInChar = new List<char>();
+            var listOfAllInputChars = new List<char>();
             int totFinds = 0; // variableto count how many letters is equal to the the userInput
             Console.WriteLine("\n\t\t\t\t\tWelcome to The Hangman! \n\n\t\tYou guess the word by guessing letters one at a time. \n\t\tYou are allowed seven mistakes! \n\n\t\t\t\t\tGood luck!!!");
             do
@@ -51,17 +52,17 @@
                 if (listOfChars[0] != userInput[0]) // if the users input doesn't match any letter
                 {
                     listOfBadLettersInChar.Add(userInput[0]); // adding letter to a bad letters list
-                    Console.WriteLine("\nYour letter doesn't match with any in the word\n"); // Printing information that letter doesn't match any in the letter
+                    Console.WriteLine("\nYour letter doesn't match with any in the word\n"); // Printing out information that letter doesn't match any in the letter
 
                 }
 
-                Console.WriteLine("Your's guessed wrong letters: "); // Printing guessed bad letters list
+                Console.WriteLine("Your's guessed wrong letters: "); // Printo
                 foreach (char badLettersChar in listOfBadLettersInChar)
                 {
-                    Console.Write(badLettersChar + ","); // printing list with ',' in between them
+                    Console.Write(badLettersChar);
                 }
 
-                Console.WriteLine($"\n\nThe search parameter {userInput} was found {totFinds} times."); 
+                Console.WriteLine($"\n\nThe search parameter {userInput} was found {totFinds} times.");
 
             } while (true);
             
