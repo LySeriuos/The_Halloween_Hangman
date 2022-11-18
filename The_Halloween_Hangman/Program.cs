@@ -14,7 +14,7 @@
             Console.WriteLine(randomWord); // printing random word in the Console                                           // 
             int randomWordLength = randomWord.Length; // getting the length of the randomWord            
             var listOfChars = new List<char>(); // creating a chars list for underscores
-            var listOfBadLettersInChar = new List<char>();
+            // var listOfBadLettersInChar = new List<char>();
             var listOfGoodLettersInChar = new List<char>();
             var listOfAllInputChars = new List<char>();
             int totFinds = 0; // variableto count how many letters is equal to the the userInput
@@ -51,10 +51,14 @@
                     return;
                 }
 
-             
 
-                Console.WriteLine("Your's guessed wrong letters: "); 
-                
+                var listOfBadLettersInChar = listOfAllInputChars.Except(listOfGoodLettersInChar).ToList();
+
+                Console.WriteLine("Your's guessed wrong letters: ");
+                foreach (char badLettersChar in listOfBadLettersInChar)
+                {
+                    Console.Write(badLettersChar);
+                }
 
                 Console.WriteLine($"\n\nThe search parameter {userInput} was found {totFinds} times.");
 
