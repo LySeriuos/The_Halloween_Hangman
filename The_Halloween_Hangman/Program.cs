@@ -53,11 +53,8 @@
 
              
 
-                Console.WriteLine("Your's guessed wrong letters: "); // Printo
-                foreach (char badLettersChar in listOfBadLettersInChar)
-                {
-                    Console.Write(badLettersChar);
-                }
+                Console.WriteLine("Your's guessed wrong letters: "); 
+                
 
                 Console.WriteLine($"\n\nThe search parameter {userInput} was found {totFinds} times.");
 
