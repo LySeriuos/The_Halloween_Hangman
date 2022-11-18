@@ -15,6 +15,7 @@
             int randomWordLength = randomWord.Length; // getting the length of the randomWord            
             var listOfChars = new List<char>(); // creating a chars list for underscores
             var listOfBadLettersInChar = new List<char>();
+            var listOfGoodLettersInChar = new List<char>();
             var listOfAllInputChars = new List<char>();
             int totFinds = 0; // variableto count how many letters is equal to the the userInput
             Console.WriteLine("\n\t\t\t\t\tWelcome to The Hangman! \n\n\t\tYou guess the word by guessing letters one at a time. \n\t\tYou are allowed seven mistakes! \n\n\t\t\t\t\tGood luck!!!");
@@ -31,6 +32,8 @@
                 char userChar = userInput[0];
                 if (userInput != "") // check if user input is not empty 
                 {
+                    listOfAllInputChars.Add(userChar);
+
                     for (int i = 0; i < randomWord.Length; i++) // check thru the chosen word 
                     {
                         char currentChar = randomWord[i]; // converting string to char 
@@ -38,8 +41,9 @@
                         {
                             totFinds++; //counting finds
                             listOfChars[i] = userInput[0]; // changing underscore to letter in the listOfChars
+                            listOfGoodLettersInChar.Add(userChar);
                             Console.WriteLine($"\n\nThe letter {userInput} was found {totFinds} times in the word.\n");
-                        }                        
+                        }                  
                     }                    
                 }
                 else
@@ -47,12 +51,7 @@
                     return;
                 }
 
-                if (listOfChars[0] != userInput[0]) // if the users input doesn't match any letter
-                {
-                    listOfBadLettersInChar.Add(userInput[0]); // adding letter to a bad letters list
-                    Console.WriteLine("\nYour letter doesn't match with any in the word\n"); // Printing out information that letter doesn't match any in the letter
-
-                }
+             
 
                 Console.WriteLine("Your's guessed wrong letters: "); // Printo
                 foreach (char badLettersChar in listOfBadLettersInChar)
