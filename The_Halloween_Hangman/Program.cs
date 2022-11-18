@@ -11,7 +11,7 @@
                 "repetition", "unlawful", "arrogant", "jazz" };
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
-            Console.WriteLine(randomWord); // printing random word in the Console                                           // 
+            Console.WriteLine(randomWord); // printing random word in the Console
             int randomWordLength = randomWord.Length; // getting the length of the randomWord            
             var listOfChars = new List<char>(); // creating a chars list for underscores
             var listOfBadLettersInChar = new List<char>();
@@ -31,8 +31,9 @@
                 {
                     for (int i = 0; i < randomWord.Length; i++) // check thru the chosen word 
                     {
-                        char currentChar = randomWord[i];
-                        char userChar = userInput[0];
+                        char currentChar = randomWord[i]; // converting string to char 
+                        char userChar = userInput[0]; // converting userInput to char
+
 
                         if (userChar == currentChar) // checking if letter in the randomWord is the same as userInput
                         {
@@ -47,20 +48,20 @@
                     return;
                 }
 
-                if (listOfChars[0] != userInput[0]) // if the users input doesn't match any letter it gives this error
+                if (listOfChars[0] != userInput[0]) // if the users input doesn't match any letter
                 {
-                    listOfBadLettersInChar.Add(userInput[0]);
-                    Console.WriteLine("\nYour letter doesn't match with any in the word\n");
+                    listOfBadLettersInChar.Add(userInput[0]); // adding letter to a bad letters list
+                    Console.WriteLine("\nYour letter doesn't match with any in the word\n"); // Printing information that letter doesn't match any in the letter
 
                 }
 
-                Console.WriteLine("Your's guessed wrong letters: ");
+                Console.WriteLine("Your's guessed wrong letters: "); // Printing guessed all bad letters
                 foreach (char badLettersChar in listOfBadLettersInChar)
                 {
                     Console.Write(badLettersChar);
                 }
 
-                Console.WriteLine($"\n\nThe search parameter {userInput} was found {totFinds} times.");
+                Console.WriteLine($"\n\nThe search parameter {userInput} was found {totFinds} times."); 
 
             } while (true);
             
