@@ -48,8 +48,7 @@
                             listOfGoodLettersInChar.Add(userChar);
                             Console.WriteLine($"\n\nThe letter {userInput} was found {totFinds} times in the word.\n");
                         }
-                    }
-                    
+                    }                    
                 }
                 else
                 {
@@ -61,7 +60,7 @@
                 Console.WriteLine("Your's guessed wrong letters: ");
                 foreach (char badLettersChar in listOfBadLettersInChar)
                 {
-                    Console.Write(badLettersChar);
+                    Console.Write(badLettersChar + ","); // printing list with ',' in between them
                 }
                 Console.WriteLine();
 
