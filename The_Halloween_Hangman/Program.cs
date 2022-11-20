@@ -18,6 +18,7 @@
             var listOfGoodLettersInChar = new List<char>();
             var listOfAllInputChars = new List<char>();
             int totFinds = 0; // variableto count how many letters is equal to the the userInput
+            int j = 0;
             Console.WriteLine("\n\t\t\t\t\tWelcome to The Hangman! \n\n\t\tYou guess the word by guessing letters one at a time. \n\t\tYou are allowed seven mistakes! \n\n\t\t\t\t\tGood luck!!!");
             do
             {
@@ -25,7 +26,7 @@
                 {
                     listOfChars.Add('_');
                     Console.Write(listOfChars[i]);
-                }               
+                }
 
                 Console.WriteLine("\n\n\r\nGuess the letter!"); // Asking for user's input
                 string userInput = Console.ReadLine().ToLower(); // reading user's input
@@ -43,8 +44,8 @@
                             listOfChars[i] = userInput[0]; // changing underscore to letter in the listOfChars
                             listOfGoodLettersInChar.Add(userChar);
                             Console.WriteLine($"\n\nThe letter {userInput} was found {totFinds} times in the word.\n");
-                        }                  
-                    }                    
+                        }
+                    }
                 }
                 else
                 {
@@ -60,9 +61,8 @@
                     Console.Write(badLettersChar);
                 }
 
-                Console.WriteLine($"\n\nThe search parameter {userInput} was found {totFinds} times.");
 
-            } while (true);
+            } while (j < 10);
             
         }
 
