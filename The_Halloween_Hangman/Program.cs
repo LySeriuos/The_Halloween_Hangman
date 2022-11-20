@@ -22,36 +22,39 @@
             Console.WriteLine("\n\t\t\t\t\tWelcome to The Hangman! \n\n\t\tYou guess the word by guessing letters one at a time. \n\t\tYou are allowed seven mistakes! \n\n\t\t\t\t\tGood luck!!!");
             do
             {
+                Console.WriteLine();
                 for (int i = 0; i < randomWordLength; i++)
                 {
                     listOfChars.Add('_');
-                    Console.Write(listOfChars[i]);
+                    Console.Write($"{listOfChars[i]}");
                 }
-
                 Console.WriteLine("\n\n\r\nGuess the letter!"); // Asking for user's input
                 string userInput = Console.ReadLine().ToLower(); // reading user's input
                 char userChar = userInput[0];
+
                 if (userInput != "") // check if user input is not empty 
                 {
                     listOfAllInputChars.Add(userChar);
+                    j++;
 
                     for (int i = 0; i < randomWord.Length; i++) // check thru the chosen word 
                     {
                         char currentChar = randomWord[i]; // converting string to char 
                         if (userChar == currentChar) // checking if letter in the randomWord is the same as userInput
                         {
+                            
                             totFinds++; //counting finds
                             listOfChars[i] = userInput[0]; // changing underscore to letter in the listOfChars
                             listOfGoodLettersInChar.Add(userChar);
                             Console.WriteLine($"\n\nThe letter {userInput} was found {totFinds} times in the word.\n");
                         }
                     }
+                    
                 }
                 else
                 {
                     return;
                 }
-
 
                 var listOfBadLettersInChar = listOfAllInputChars.Except(listOfGoodLettersInChar).ToList();
 
@@ -60,9 +63,9 @@
                 {
                     Console.Write(badLettersChar);
                 }
+                Console.WriteLine();
 
-
-            } while (j < 10);
+            } while (j < 7);
             
         }
 
