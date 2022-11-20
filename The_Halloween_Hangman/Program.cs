@@ -11,10 +11,9 @@
                 "repetition", "unlawful", "arrogant", "jazz" };
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
-            Console.WriteLine(randomWord); // printing random word in the Console                                           // 
+            Console.WriteLine(randomWord); // printing random word in the Console                
             int randomWordLength = randomWord.Length; // getting the length of the randomWord            
             var listOfChars = new List<char>(); // creating a chars list for underscores
-            // var listOfBadLettersInChar = new List<char>();
             var listOfGoodLettersInChar = new List<char>();
             var listOfAllInputChars = new List<char>();
             int totFinds = 0; // variableto count how many letters is equal to the the userInput
@@ -26,7 +25,7 @@
                 for (int i = 0; i < randomWordLength; i++)
                 {
                     listOfChars.Add('_');
-                    Console.Write($"{listOfChars[i]}");
+                    Console.Write($"{listOfChars[i]}"); // printing out underscores for every letter in the word
                 }
                 Console.WriteLine("\n\n\r\nGuess the letter!"); // Asking for user's input
                 string userInput = Console.ReadLine().ToLower(); // reading user's input
@@ -34,7 +33,7 @@
 
                 if (userInput != "") // check if user input is not empty 
                 {
-                    listOfAllInputChars.Add(userChar);
+                    listOfAllInputChars.Add(userChar); // adding all userInput letters to the list
                     j++;
 
                     for (int i = 0; i < randomWord.Length; i++) // check thru the chosen word 
@@ -45,7 +44,7 @@
                             
                             totFinds++; //counting finds
                             listOfChars[i] = userInput[0]; // changing underscore to letter in the listOfChars
-                            listOfGoodLettersInChar.Add(userChar);
+                            listOfGoodLettersInChar.Add(userChar); // adding to the list guessed right letters
                             Console.WriteLine($"\n\nThe letter {userInput} was found {totFinds} times in the word.\n");
                         }
                     }                    
@@ -55,14 +54,14 @@
                     return;
                 }
 
-                var listOfBadLettersInChar = listOfAllInputChars.Except(listOfGoodLettersInChar).ToList();
-
-                Console.WriteLine("Your's guessed wrong letters: ");
+                var listOfBadLettersInChar = listOfAllInputChars.Except(listOfGoodLettersInChar).ToList(); // comparing two lists and creating new list
+                                                                                                           // with letters wich doesn't match
+                Console.WriteLine("Your's guessed wrong letters: "); // printing out wrong letters
                 foreach (char badLettersChar in listOfBadLettersInChar)
                 {
                     Console.Write(badLettersChar + ","); // printing list with ',' in between them
                 }
-                Console.WriteLine();
+                Console.WriteLine(); // empty line for extra empty row
 
             } while (j < 7);
             
