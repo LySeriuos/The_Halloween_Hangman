@@ -11,12 +11,12 @@
                 "repetition", "unlawful", "arrogant", "jazz" };
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
+            char[] randomWordToCharArray = randomWord.ToCharArray();
             Console.WriteLine(randomWord); // printing random word in the Console                
-            int randomWordLength = randomWord.Length; // getting the length of the randomWord            
+            int randomWordLength = randomWord.Length; // getting the length of the randomWord          
             var listOfChars = new List<char>(); // creating a chars list for underscores
             var listOfGoodLettersInChar = new List<char>();
             var listOfAllInputChars = new List<char>();
-            int totFinds = 0; // variableto count how many letters is equal to the the userInput
             int tries = 0; 
             Console.WriteLine("\n\t\t\t\t\tWelcome to The Hangman! \n\n\t\tYou guess the word by guessing letters one at a time. \n\t\tYou are allowed seven mistakes! \n\n\t\t\t\t\tGood luck!!!");
             do
@@ -45,7 +45,7 @@
                             listOfChars[i] = userChar; // changing underscore to letter in the listOfChars
                             listOfGoodLettersInChar.Add(userChar); // adding to the list guessed right letters
                         }
-                    }                    
+                    }
                 }
                 else
                 {
@@ -66,6 +66,8 @@
                     Console.Write(badLettersChar + ","); // printing list with ',' in between them
                 }
                 Console.WriteLine(); // empty line for extra empty row
+
+
 
             } while (tries < 7);
             //TODO: Inform user of game result (win/lose)
