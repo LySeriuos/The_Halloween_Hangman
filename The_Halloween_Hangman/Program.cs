@@ -41,12 +41,9 @@
                     {
                         char currentChar = randomWord[i]; // converting string to char 
                         if (userChar == currentChar) // checking if letter in the randomWord is the same as userInput
-                        {
-                            
-                            totFinds++; //counting finds
+                        {   
                             listOfChars[i] = userChar; // changing underscore to letter in the listOfChars
                             listOfGoodLettersInChar.Add(userChar); // adding to the list guessed right letters
-                            Console.WriteLine($"\n\nThe letter {userInput} was found {totFinds} times in the word.\n");
                         }
                     }                    
                 }
