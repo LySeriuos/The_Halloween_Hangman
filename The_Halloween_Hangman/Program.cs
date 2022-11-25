@@ -84,6 +84,9 @@ namespace The_Halloween_Hangman
 
 
             } while (tries < 8);
+            Console.WriteLine("You Lost! Try again");
+
+
         }
 
     }
