@@ -17,7 +17,7 @@
             var listOfGoodLettersInChar = new List<char>();
             var listOfAllInputChars = new List<char>();
             int totFinds = 0; // variableto count how many letters is equal to the the userInput
-            int j = 0;
+            int tries = 0; 
             Console.WriteLine("\n\t\t\t\t\tWelcome to The Hangman! \n\n\t\tYou guess the word by guessing letters one at a time. \n\t\tYou are allowed seven mistakes! \n\n\t\t\t\t\tGood luck!!!");
             do
             {
@@ -29,12 +29,13 @@
                 }
                 Console.WriteLine("\n\n\r\nGuess the letter!"); // Asking for user's input
                 string userInput = Console.ReadLine().ToLower(); // reading user's input
-                char userChar = userInput[0];
+                
 
                 if (userInput != "") // check if user input is not empty 
                 {
+                    char userChar = userInput[0]; //TODO: valiidate input here
                     listOfAllInputChars.Add(userChar); // adding all userInput letters to the list
-                    j++;
+                    tries++;
 
                     for (int i = 0; i < randomWord.Length; i++) // check thru the chosen word 
                     {
@@ -43,7 +44,7 @@
                         {
                             
                             totFinds++; //counting finds
-                            listOfChars[i] = userInput[0]; // changing underscore to letter in the listOfChars
+                            listOfChars[i] = userChar; // changing underscore to letter in the listOfChars
                             listOfGoodLettersInChar.Add(userChar); // adding to the list guessed right letters
                             Console.WriteLine($"\n\nThe letter {userInput} was found {totFinds} times in the word.\n");
                         }
@@ -51,7 +52,13 @@
                 }
                 else
                 {
-                    return;
+                    Console.WriteLine("Your input is empty! Please guess your letter!");
+                    string userInputAfterInputWasEmpty = Console.ReadLine().ToLower(); // reading userInput after it was empty
+                    char userCharAfterInputWasEmpty = userInputAfterInputWasEmpty[0]; // converting user's Input to char                    
+                    if (userInputAfterInputWasEmpty != "") // checking if user input is not empty again
+                    {
+                        listOfAllInputChars.Add(userCharAfterInputWasEmpty); // if it is not empty, add letter to the list of all letters
+                    }
                 }
 
                 var listOfBadLettersInChar = listOfAllInputChars.Except(listOfGoodLettersInChar).ToList(); // comparing two lists and creating new list
@@ -63,8 +70,8 @@
                 }
                 Console.WriteLine(); // empty line for extra empty row
 
-            } while (j < 7);
-            
+            } while (tries < 7);
+            //TODO: Inform user of game result (win/lose)
         }
 
     }
