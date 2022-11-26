@@ -10,6 +10,7 @@
             "agency", "method", "wedding", "payment", "message", "clothes", "science", "queen"};
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
+            Console.WriteLine(randomWord);
             List<char> randomWordToCharList = new List<char>(); // creating a list to randomWord
             randomWordToCharList.AddRange(randomWord); // add chars from string to a list              
             int randomWordLength = randomWord.Length; // getting the length of the randomWord          
@@ -47,13 +48,7 @@
                 }
                 else
                 {
-                    Console.WriteLine("Your input is empty! Please guess your letter!");
-                    string userInputAfterInputWasEmpty = Console.ReadLine().ToLower(); // reading userInput after it was empty
-                    char userCharAfterInputWasEmpty = userInputAfterInputWasEmpty[0]; // converting user's Input to char                    
-                    if (userInputAfterInputWasEmpty != "") // checking if user input is not empty again
-                    {
-                        listOfAllInputChars.Add(userCharAfterInputWasEmpty); // if it is not empty, add letter to the list of all letters
-                    }
+                    continue;
                 }
                 // checking if listOfGoodLettersInChar is equal to randomWordToCharList
                 bool isEqual = randomWordToCharList.All(listOfGoodLettersInChar.Contains) && listOfGoodLettersInChar.All(randomWordToCharList.Contains);
@@ -62,6 +57,8 @@
                     Console.WriteLine($"You won! The random word is {randomWord.ToUpper()}"); // printing out message 
                     break; // jumping out the code
                 }
+
+
                 var listOfBadLettersInChar = listOfAllInputChars.Except(listOfGoodLettersInChar).ToList(); // comparing two lists and creating new list
                                                                                                            // with letters wich doesn't match
                 Console.WriteLine("Your's guessed wrong letters: "); // printing out wrong letters
@@ -72,7 +69,7 @@
                 Console.WriteLine(); // empty line for extra empty row
             } while (tries < 7);
 
-            if (tries > 7)
+            if (tries >= 7)
             {
                 Console.WriteLine("You Lost! Try again!");
                 Console.WriteLine();
