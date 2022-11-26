@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-
-namespace The_Halloween_Hangman
+﻿namespace The_Halloween_Hangman
 {
     internal class Program
     {
@@ -12,9 +8,8 @@ namespace The_Halloween_Hangman
             var words = new List<string>() { "money", "danger", "aloof", "scheme", "jazz" };
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
-
-            List<char> randomWordToCharList = new List<char>();
-            randomWordToCharList.AddRange(randomWord);
+            List<char> randomWordToCharList = new List<char>(); // creating a list to randomWord
+            randomWordToCharList.AddRange(randomWord); // add chars from string to a list
             Console.WriteLine(randomWord); // printing random word in the Console                
             int randomWordLength = randomWord.Length; // getting the length of the randomWord          
             var listOfChars = new List<char>(); // creating a chars list for underscores
@@ -24,7 +19,6 @@ namespace The_Halloween_Hangman
             Console.WriteLine("\n\t\t\t\t\tWelcome to The Hangman! \n\n\t\tYou guess the word by guessing letters one at a time. \n\t\tYou are allowed seven mistakes! \n\n\t\t\t\t\tGood luck!!!");
             do
             {
-
                 Console.WriteLine();
                 for (int i = 0; i < randomWordLength; i++)
                 {
@@ -33,7 +27,6 @@ namespace The_Halloween_Hangman
                 }
                 Console.WriteLine("\n\n\r\nGuess the letter!"); // Asking for user's input
                 string userInput = Console.ReadLine().ToLower(); // reading user's input
-
 
                 if (userInput != "") // check if user input is not empty 
                 {
@@ -50,7 +43,6 @@ namespace The_Halloween_Hangman
                             listOfGoodLettersInChar.Add(userChar); // adding to the list guessed right letters
                         }
                     }
-
                 }
                 else
                 {
@@ -69,20 +61,14 @@ namespace The_Halloween_Hangman
                     Console.WriteLine($"You won! The random word is {randomWord.ToUpper()}"); // printing out message 
                     break; // jumping out the code
                 }
-
                 var listOfBadLettersInChar = listOfAllInputChars.Except(listOfGoodLettersInChar).ToList(); // comparing two lists and creating new list
                                                                                                            // with letters wich doesn't match
-
                 Console.WriteLine("Your's guessed wrong letters: "); // printing out wrong letters
                 foreach (char badLettersChar in listOfBadLettersInChar)
                 {
                     Console.Write(badLettersChar + ","); // printing list with ',' in between them
                 }
                 Console.WriteLine(); // empty line for extra empty row
-
-
-
-
             } while (tries < 7);
 
             if (tries > 7)
