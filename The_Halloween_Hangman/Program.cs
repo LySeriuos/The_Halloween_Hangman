@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-namespace The_Halloween_Hangman
+﻿namespace The_Halloween_Hangman
 {
     internal class Program
     {
@@ -55,7 +53,7 @@ namespace The_Halloween_Hangman
                 bool isEqual = randomWordToCharList.All(listOfGoodLettersInChar.Contains) && listOfGoodLettersInChar.All(randomWordToCharList.Contains);
                 if (isEqual == true)
                 {
-                    Console.WriteLine($"You won! The random word is {randomWord.ToUpper()}"); // printing out message 
+                    Console.WriteLine($"You won! The random word is {randomWord.ToUpper()}"); // printing out message
                     return; // jumping out the code
                 }
 
@@ -73,7 +71,6 @@ namespace The_Halloween_Hangman
             Console.WriteLine("You Lost! Try again!");
             Console.WriteLine();
             Console.WriteLine($"The random word was: {randomWord.ToUpper()}");
-
         }
     }
 }
