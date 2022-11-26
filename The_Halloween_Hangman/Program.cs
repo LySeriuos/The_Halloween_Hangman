@@ -1,4 +1,6 @@
-﻿namespace The_Halloween_Hangman
+﻿using System.Reflection.Metadata.Ecma335;
+
+namespace The_Halloween_Hangman
 {
     internal class Program
     {
@@ -10,7 +12,6 @@
             "agency", "method", "wedding", "payment", "message", "clothes", "science", "queen"};
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
-            Console.WriteLine(randomWord);
             List<char> randomWordToCharList = new List<char>(); // creating a list to randomWord
             randomWordToCharList.AddRange(randomWord); // add chars from string to a list              
             int randomWordLength = randomWord.Length; // getting the length of the randomWord          
@@ -55,7 +56,7 @@
                 if (isEqual == true)
                 {
                     Console.WriteLine($"You won! The random word is {randomWord.ToUpper()}"); // printing out message 
-                    break; // jumping out the code
+                    return; // jumping out the code
                 }
 
 
@@ -67,19 +68,12 @@
                     Console.Write(badLettersChar + ","); // printing list with ',' in between them
                 }
                 Console.WriteLine(); // empty line for extra empty row
-            } while (tries < 7);
+            } while (tries <= 6);
 
-            if (tries >= 7)
-            {
-                Console.WriteLine("You Lost! Try again!");
-                Console.WriteLine();
-                Console.WriteLine($"The random word was: {randomWord.ToUpper()}");                
-            }
+            Console.WriteLine("You Lost! Try again!");
+            Console.WriteLine();
+            Console.WriteLine($"The random word was: {randomWord.ToUpper()}");
 
-
-            Console.Write("\nPress 'Enter' to exit the process...");
-            Console.ReadKey();
         }
-
     }
 }
