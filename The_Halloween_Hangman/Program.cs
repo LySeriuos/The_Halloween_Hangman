@@ -5,7 +5,9 @@
         static void Main(string[] args)
         {
             Random random = new Random(); // activating random function
-            var words = new List<string>() { "money", "danger", "aloof", "scheme", "jazz" };
+            var words = new List<string>() { "money", "danger", "aloof", "scheme", "jazz", "volume", "lady", "sector", "guitar",
+            "death", "winner", "ladder", "cousin", "driver", "farmer", "engine", "worker", "aspect", "memory", "cookie", "cancer", "income",
+            "agency", "method", "wedding", "payment", "message", "clothes", "science", "queen"};
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
             List<char> randomWordToCharList = new List<char>(); // creating a list to randomWord
