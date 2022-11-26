@@ -12,7 +12,7 @@ namespace The_Halloween_Hangman
             var words = new List<string>() { "money", "danger", "aloof", "scheme", "jazz" };
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
-            
+
             List<char> randomWordToCharList = new List<char>();
             randomWordToCharList.AddRange(randomWord);
             Console.WriteLine(randomWord); // printing random word in the Console                
@@ -50,7 +50,7 @@ namespace The_Halloween_Hangman
                             listOfGoodLettersInChar.Add(userChar); // adding to the list guessed right letters
                         }
                     }
-                    
+
                 }
                 else
                 {
@@ -66,13 +66,13 @@ namespace The_Halloween_Hangman
                 bool isEqual = randomWordToCharList.All(listOfGoodLettersInChar.Contains) && listOfGoodLettersInChar.All(randomWordToCharList.Contains);
                 if (isEqual == true)
                 {
-                    Console.WriteLine("You won!"); // printing out message 
+                    Console.WriteLine($"You won! The random word is {randomWord.ToUpper()}"); // printing out message 
                     break; // jumping out the code
                 }
 
                 var listOfBadLettersInChar = listOfAllInputChars.Except(listOfGoodLettersInChar).ToList(); // comparing two lists and creating new list
                                                                                                            // with letters wich doesn't match
-                
+
                 Console.WriteLine("Your's guessed wrong letters: "); // printing out wrong letters
                 foreach (char badLettersChar in listOfBadLettersInChar)
                 {
@@ -80,13 +80,21 @@ namespace The_Halloween_Hangman
                 }
                 Console.WriteLine(); // empty line for extra empty row
 
-               
 
 
-            } while (tries < 8);
-            Console.WriteLine("You Lost! Try again");
+
+            } while (tries < 7);
+
+            if (tries > 7)
+            {
+                Console.WriteLine("You Lost! Try again!");
+                Console.WriteLine();
+                Console.WriteLine($"The random word was: {randomWord.ToUpper()}");                
+            }
 
 
+            Console.Write("\nPress 'Enter' to exit the process...");
+            Console.ReadKey();
         }
 
     }
