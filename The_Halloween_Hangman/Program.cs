@@ -10,8 +10,7 @@
             "agency", "method", "wedding", "payment", "message", "clothes", "science", "queen"};
             int wordsIndex = random.Next(words.Count); // picking random index in the list
             string randomWord = words[wordsIndex]; // getting the value of the index
-            List<char> randomWordToCharList = new List<char>(); // creating a list to randomWord
-            randomWordToCharList.AddRange(randomWord); // add chars from string to a list              
+            var randomWordToCharList = randomWord.ToList<char>(); // creating a char list to randomWord
             int randomWordLength = randomWord.Length; // getting the length of the randomWord          
             var listOfChars = new List<char>(); // creating a chars list for underscores
             var listOfGoodLettersInChar = new List<char>();
