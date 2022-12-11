@@ -21,17 +21,21 @@
             do
             {
                 Console.WriteLine();
+
                 for (int i = 0; i < randomWordLength; i++)
                 {
-                    listOfChars.Add('_');
+                    if (listOfChars.Count < randomWordLength) // checking if the list has less characters than randomWord length. If the list has equal it doesn't add more to the list,
+                                                              // if it less than randomWord length then it keeps adding untill it get equal number
+                        listOfChars.Add('_');
                     Console.Write($"{listOfChars[i]}"); // printing out underscores for every letter in the word
                 }
+
                 Console.WriteLine("\n\n\r\nGuess the letter!"); // Asking for user's input
                 string userInput = Console.ReadLine().ToLower(); // reading user's input
 
                 if (userInput != "") // check if user input is not empty 
                 {
-                    char userChar = userInput[0]; //TODO: valiidate input here
+                    char userChar = userInput[0]; // adding the value for the userChar 
                     listOfAllInputChars.Add(userChar); // adding all userInput letters to the list
                     tries++;
 
