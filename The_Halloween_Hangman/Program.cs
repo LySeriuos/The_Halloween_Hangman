@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Random random = new Random(); // activating random function
+            Random random = new Random(); // activating random object generator
             var words = new List<string>() { "money", "danger", "aloof", "scheme", "jazz", "volume", "lady", "sector", "guitar",
             "death", "winner", "ladder", "cousin", "driver", "farmer", "engine", "worker", "aspect", "memory", "cookie", "cancer", "income",
             "agency", "method", "wedding", "payment", "message", "clothes", "science", "queen"};
